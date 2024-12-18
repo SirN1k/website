@@ -1,0 +1,33 @@
+<%- include('partials/header', { title: 'login' }) %>
+        <div class="login-box">
+            <div class="login-header">
+                <h1>Login</h1>
+            </div>
+
+            <form action="/login" method="post">
+                <div class="input-box">
+                    <input type="text" class="input-field <%= locals.message ? 'message' : '' %>" name="email" placeholder="Email" autocomplete="off" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field <%= locals.message ? 'message' : '' %>" name="password" placeholder="<%= locals.message ? message : 'Password' %>" autocomplete="off" required>
+                </div>
+            
+                <div class="forgot">
+                    <section>
+                        <input type="checkbox" id="check">
+                        <label for="check">Remember me</label>
+                    </section>
+                    <section>
+                        <a href="#">Forgot password</a>
+                    </section>
+                </div>
+
+                <div class="input-submit">
+                    <button class="submit-btn" id="submit">Sign In</button>
+                </div>
+            </form>
+            <div class="sign-up-link">
+                <p>Don't have account? <a href="/register">Sign Up</a></p>
+            </div>
+        </div>
+<%- include('partials/footer') %>

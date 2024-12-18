@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" rel="stylesheet" href="<%= locals.link ? link : '/css/' + title + '.css' %>">
+</head>
+<body>
+   <header class="main-header">
+        <nav class="nav-bar">
+            <ul class="nav-links">
+                <li><a href="/cart">Cart</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <li><a href="/">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="spc">

@@ -1,0 +1,29 @@
+<%- include('partials/header', { title: 'Cart' }) %>
+
+        <h1>Your Cart</h1>
+        <div class="cart-container">
+            <% let totalPrice = 0; %>
+            <% products.forEach(product => { %>
+                <div class="product">
+                    <img src="<%= product.image_url %>" alt="<%= product.name %>" width="100">
+                    <div class="product-details">
+                        <h2><%= product.name %></h2>
+                        <p>Description: <%= product.description %></p>
+                        <p>Quantity: <%= product.quantity %></p>
+                        <p>Price: $<%= (product.price * product.quantity).toFixed(2) %></p>
+                        <% totalPrice += product.price * product.quantity %>
+                    </div>
+                    <form action="/cart/remove" method="POST">
+                        <input type="hidden" name="product_id" value="<%= product.product_id %>">
+                        <button type="submit">Remove</button>
+                    </form>
+                </div>
+            <% }) %>
+
+            <div class="total-price">Total Price: $<%= totalPrice.toFixed(2) %></div>
+
+            <form action="/cart/buy" method="POST" class="buy-form">
+                <button type="submit" class="buy-btn">Buy All</button>
+            </form>
+        </div>
+<%- include('partials/footer') %>
